@@ -13,6 +13,13 @@
       format("woff2"),
     url("../font/typekiln_-_eloquiatext-extralight-webfont.woff") format("woff");
 }
+@font-face {
+  font-family: "EloquiaB";
+  src: url("../font/typekiln_-_eloquiadisplay-extrabold-webfont.woff2")
+      format("woff2"),
+    url("../font/typekiln_-_eloquiadisplay-extrabold-webfont.woff")
+      format("woff");
+}
 
 /* ******************************** */
 
@@ -29,6 +36,7 @@
 
   /* Efectos */
   --sombra: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
   /* Tamaños */
   --radius: 40px;
 }
@@ -57,33 +65,133 @@
       border-radius: var(--radius);
       width: 100%;
       height: 100%;
+      font-family: "Eloquia";
       text-align: center;
+
+      /* Control del contenido */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
     .caja1 {
       grid-area: span 2 / span 5;
+
+      & p {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        line-height: 205%;
+        font-size: 18px;
+
+        & .big1 {
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 130%;
+          font-family: "EloquiaB";
+          background: linear-gradient(
+            90deg,
+            var(--c-azul-claro) 0%,
+            var(--c-azul-marino-claro) 50%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+      }
     }
+
     .caja2 {
       grid-area: span 2 / span 10;
     }
+
     .caja3 {
       grid-area: span 3 / span 7;
     }
     .caja4 {
-      grid-column: 23 /32;
-      grid-row: 1/4;
+      grid-area: span 3 / span 9;
+
+      & p {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        line-height: 500%;
+        font-size: 18px;
+
+        & .bateria {
+          font-size: 65px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 130%;
+          font-family: "EloquiaB";
+          background: green;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
     }
     .caja5 {
-      grid-column: 32 /39;
-      grid-row: 1/4;
+      grid-area: span 3 / span 7;
     }
     .caja6 {
-      grid-column: 39/ 51;
-      grid-row: 1/4;
+      grid-area: span 3 / span 12;
+
+      & p {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        line-height: 150%;
+        font-size: 18px;
+
+        & .big2 {
+          font-size: 125px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 130%;
+          font-family: "EloquiaB";
+          background: linear-gradient(
+            89deg,
+            var(--c-azul-claro) 1.24%,
+            var(--c-azul-marino-claro)
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
     }
     .caja7,
     .caja8,
     .caja9 {
       grid-area: span 2 / span 5;
+    }
+
+    .caja7 {
+      & p {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        line-height: 205%;
+        font-size: 18px;
+
+        & .big3 {
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 130%;
+          font-family: "EloquiaB";
+          background: linear-gradient(
+            90deg,
+            var(--c-azul-claro) 0%,
+            var(--c-azul-marino-claro) 50%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+      }
     }
     .caja10 {
       grid-area: span 6 / span 20;
@@ -93,30 +201,170 @@
     }
     .caja12 {
       grid-area: span 3 / span 10;
+
+      & p {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        line-height: 150%;
+        font-size: 18px;
+
+        & .big4 {
+          font-size: 125px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 130%;
+          font-family: "EloquiaB";
+          background: linear-gradient(
+            89deg,
+            var(--c-rojo-vino) 1.24%,
+            var(--c-rojo-rosado)
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
     }
     .caja13 {
       grid-area: span 3 / span 15;
+      font-size: 50px;
+      font-family: "EloquiaB";
+      color: var(--c-blanco);
     }
     .caja14 {
       grid-area: span 6 / span 15;
     }
     .caja15 {
       grid-area: span 2 / span 7;
+
+      & p {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        line-height: 150%;
+        font-size: 18px;
+
+        & span {
+          text-align: center;
+          font-size: 60px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 100.023%; /* 60.014px */
+          font-family: "EloquiaB";
+          background: linear-gradient(
+            25deg,
+            var(--c-rojo-vino) 38.48%,
+            var(--c-azul-marino-claro) 64.72%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
     }
     .caja16 {
       grid-area: span 2 / span 8;
+
+      & p {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        line-height: 170%;
+        font-size: 24px;
+
+        & .big5 {
+          text-align: center;
+          font-size: 86px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 100.023%; /* 60.014px */
+          font-family: "EloquiaB";
+          background: linear-gradient(84deg, #8d447e 21.43%, #f4005e 91.38%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
     }
     .caja17 {
       grid-area: span 3 / span 10;
+
+      & p {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        line-height: 150%;
+        font-size: 18px;
+
+        & .big6 {
+          font-size: 125px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 130%;
+          font-family: "EloquiaB";
+          background: linear-gradient(88deg, #7b498f -67.27%, #464f96 111.77%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
     }
     .caja18 {
       grid-area: span 3 / span 5;
+
+      & p {
+        position: absolute;
+        text-align: center;
+        color: #1e1e1e;
+
+        font-family: "EloquiaB";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 107%; /* 42.8px */
+
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        background: linear-gradient(90deg, #93c8e0 -20.29%, #0070ad 66.62%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        & span {
+          flex: 1;
+          text-align: center;
+        }
+      }
     }
     .caja19 {
-      grid-area: span 3 / span 12;
+      grid-area: span 3 / span 13;
     }
     .caja20 {
-      grid-area: span 3 / span 8;
+      grid-area: span 3 / span 7;
+
+      & p {
+        position: absolute;
+        text-align: center;
+        color: #1e1e1e;
+
+        font-family: "EloquiaB";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 107%; /* 42.8px */
+
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        & span {
+          flex: 1;
+          text-align: center;
+        }
+      }
     }
   }
 }
