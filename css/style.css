@@ -41,7 +41,7 @@
   /* Efectos */
   --sombra: var(--c-gris-claro) 0px 7px 29px 0px;
   --radius: 40px;
-  --sombra-caja: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --sombra-caja: rgba(0, 0, 0, 0.8) 3px 3px 20px 0px;
 
   /* Tamaños */
   --ancho-total: 2000px;
@@ -60,15 +60,27 @@
   justify-content: center;
   align-items: center;
 
-  /* Animacion */
-  & div:hover {
-    cursor: pointer;
-    background: red;
+  /* Efecro espejo a todo */
+  & main div {
     transform: rotateY(180deg);
-    transition: transform 2s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-      background 2s ease;
+    filter: grayscale(1);
   }
 
+  /* Animacion para las carta */
+  & main div:hover {
+    cursor: pointer;
+    filter: blur();
+    box-shadow: var(--sombra-caja);
+    transform: rotateY(360deg);
+    transition: transform 2s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      box-shadow 2s ease, color 2s step-start 1s !important;
+  }
+  /* Bloqueo de la caja central */
+  & main .caja10:hover {
+    transform: none;
+    cursor: auto;
+    transition: none;
+  }
   & main {
     width: min(var(--ancho-total), 100%);
     height: min(var(--alto-total), 100%);
@@ -81,7 +93,7 @@
     gap: 10px;
 
     /* Atributos generales de las cajas */
-    & > div {
+    & :where(div) {
       background: var(--c-gris-claro);
       border-radius: var(--radius);
       width: 100%;
