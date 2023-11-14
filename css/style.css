@@ -41,7 +41,8 @@
   /* Efectos */
   --sombra: var(--c-gris-claro) 0px 7px 29px 0px;
   --radius: 40px;
-  --sombra-caja: rgba(0, 0, 0, 0.8) 3px 3px 20px 0px;
+  --sombra-caja: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 
   /* Tamaños */
   --ancho-total: 2000px;
@@ -63,24 +64,20 @@
   /* Efecro espejo a todo */
   & main div {
     transform: rotateY(180deg);
-    filter: grayscale(1);
+    opacity: 30%;
   }
 
   /* Animacion para las carta */
-  & main div:hover {
+  /* Bloqueo de la caja central */
+  & main div:hover:not(.caja10) {
     cursor: pointer;
-    filter: blur();
+    opacity: 100%;
     box-shadow: var(--sombra-caja);
     transform: rotateY(360deg);
-    transition: transform 2s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-      box-shadow 2s ease, color 2s step-start 1s !important;
+    transition: transform 1.25s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      box-shadow 2s ease, opacity 1.8s !important;
   }
-  /* Bloqueo de la caja central */
-  & main .caja10:hover {
-    transform: none;
-    cursor: auto;
-    transition: none;
-  }
+
   & main {
     width: min(var(--ancho-total), 100%);
     height: min(var(--alto-total), 100%);
@@ -141,11 +138,9 @@
         }
       }
     }
-
     .caja2 {
       grid-area: span 2 / span 10;
     }
-
     .caja3 {
       grid-area: span 3 / span 7;
     }
@@ -199,7 +194,6 @@
     .caja9 {
       grid-area: var(--grid-2por5);
     }
-
     .caja7 {
       & p {
         line-height: 205%;
@@ -385,3 +379,4 @@
     }
   }
 }
+/* ---------------------- */
