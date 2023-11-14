@@ -1,4 +1,6 @@
 /* *********************************** */
+/* Importación de hojas de estilo */
+/* *********************************** */
 @import url(normalize.min.css);
 @import url(reset.css);
 
@@ -21,46 +23,65 @@
       format("woff");
 }
 
-/* ******************************** */
-
-/* Colores */
+/* *********************************** */
+/* Colores y Variables */
+/* *********************************** */
 :root {
   --c-azul-claro: #60b1d7;
   --c-azul-marino-claro: #3772a1;
   --c-blanco: #f6f5f6;
+  --c-negro: #020202;
   --c-gris-claro: #ebebeb;
   --c-gris-oscuro: #434343;
   --c-morado: #77416d;
   --c-rojo-rosado: #f3005e;
   --c-rojo-vino: #840028;
+  --c-verde: #00ca32;
 
   /* Efectos */
-  --sombra: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --sombra: var(--c-gris-claro) 0px 7px 29px 0px;
+  --radius: 40px;
+  --sombra-caja: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
   /* Tamaños */
-  --radius: 40px;
+  --ancho-total: 2000px;
+  --alto-total: 1115px;
+
+  /* GRID */
+  --grid-2por5: span 2 / span 5;
 }
 
-/* ******************************** */
+/* *********************************** */
+/* Contenedor Principal */
+/* *********************************** */
 .contenedor {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  /* Animacion */
+  & div:hover {
+    cursor: pointer;
+    background: red;
+    transform: rotateY(180deg);
+    transition: transform 2s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      background 2s ease;
+  }
+
   & main {
-    width: min(2000px, 100%);
-    height: min(1115px, 100%);
+    width: min(var(--ancho-total), 100%);
+    height: min(var(--alto-total), 100%);
     padding: 20px;
     box-shadow: var(--sombra);
     border-radius: var(--radius);
-
     display: grid;
     grid-template-columns: repeat(50, 1fr);
     grid-template-rows: repeat(12, 1fr);
     gap: 10px;
 
-    & :where(div) {
+    /* Atributos generales de las cajas */
+    & > div {
       background: var(--c-gris-claro);
       border-radius: var(--radius);
       width: 100%;
@@ -68,21 +89,28 @@
       font-family: "Eloquia";
       text-align: center;
 
-      /* Control del contenido */
+      /* Control de las cajas */
       display: flex;
       justify-content: center;
       align-items: center;
-    }
 
-    .caja1 {
-      grid-area: span 2 / span 5;
-
+      /* Control del contenido */
       & p {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        line-height: 205%;
         font-size: 18px;
+      }
+    }
+
+    /* *********************************** */
+    /* Atributos de las cajas */
+    /* *********************************** */
+    .caja1 {
+      grid-area: var(--grid-2por5);
+
+      & p {
+        line-height: 205%;
 
         & .big1 {
           font-size: 48px;
@@ -113,11 +141,7 @@
       grid-area: span 3 / span 9;
 
       & p {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
         line-height: 500%;
-        font-size: 18px;
 
         & .bateria {
           font-size: 65px;
@@ -125,7 +149,7 @@
           font-weight: 800;
           line-height: 130%;
           font-family: "EloquiaB";
-          background: green;
+          background-color: var(--c-verde);
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -139,11 +163,7 @@
       grid-area: span 3 / span 12;
 
       & p {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
         line-height: 150%;
-        font-size: 18px;
 
         & .big2 {
           font-size: 125px;
@@ -165,16 +185,12 @@
     .caja7,
     .caja8,
     .caja9 {
-      grid-area: span 2 / span 5;
+      grid-area: var(--grid-2por5);
     }
 
     .caja7 {
       & p {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
         line-height: 205%;
-        font-size: 18px;
 
         & .big3 {
           font-size: 48px;
@@ -203,11 +219,7 @@
       grid-area: span 3 / span 10;
 
       & p {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
         line-height: 150%;
-        font-size: 18px;
 
         & .big4 {
           font-size: 125px;
@@ -230,7 +242,7 @@
       grid-area: span 3 / span 15;
       font-size: 50px;
       font-family: "EloquiaB";
-      color: var(--c-blanco);
+      color: var(--c-gris-oscuro);
     }
     .caja14 {
       grid-area: span 6 / span 15;
@@ -239,11 +251,7 @@
       grid-area: span 2 / span 7;
 
       & p {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
         line-height: 150%;
-        font-size: 18px;
 
         & span {
           text-align: center;
@@ -267,9 +275,6 @@
       grid-area: span 2 / span 8;
 
       & p {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
         line-height: 170%;
         font-size: 24px;
 
@@ -280,7 +285,11 @@
           font-weight: 800;
           line-height: 100.023%; /* 60.014px */
           font-family: "EloquiaB";
-          background: linear-gradient(84deg, #8d447e 21.43%, #f4005e 91.38%);
+          background: linear-gradient(
+            84deg,
+            var(--c-morado) 21.43%,
+            var(--c-rojo-rosado) 91.38%
+          );
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -291,11 +300,7 @@
       grid-area: span 3 / span 10;
 
       & p {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
         line-height: 150%;
-        font-size: 18px;
 
         & .big6 {
           font-size: 125px;
@@ -303,7 +308,11 @@
           font-weight: 800;
           line-height: 130%;
           font-family: "EloquiaB";
-          background: linear-gradient(88deg, #7b498f -67.27%, #464f96 111.77%);
+          background: linear-gradient(
+            88deg,
+            var(--c-morado) -67.27%,
+            var(--c-azul-marino-claro) 111.77%
+          );
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -316,7 +325,7 @@
       & p {
         position: absolute;
         text-align: center;
-        color: #1e1e1e;
+        color: var(--c-gris-oscuro);
 
         font-family: "EloquiaB";
         font-size: 40px;
@@ -324,11 +333,11 @@
         font-weight: 800;
         line-height: 107%; /* 42.8px */
 
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-
-        background: linear-gradient(90deg, #93c8e0 -20.29%, #0070ad 66.62%);
+        background: linear-gradient(
+          90deg,
+          var(--c-azul-claro) -20.29%,
+          var(--c-azul-marino-claro) 66.62%
+        );
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -348,17 +357,13 @@
       & p {
         position: absolute;
         text-align: center;
-        color: #1e1e1e;
+        color: var(--c-negro);
 
         font-family: "EloquiaB";
         font-size: 40px;
         font-style: normal;
         font-weight: 800;
         line-height: 107%; /* 42.8px */
-
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
 
         & span {
           flex: 1;
