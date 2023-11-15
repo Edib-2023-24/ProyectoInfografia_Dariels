@@ -69,15 +69,16 @@
 
   /* Animacion para las carta */
   /* Bloqueo de la caja central */
-  & main div:hover:not(.caja10) {
+  & > main div:hover:not(.caja10) {
     cursor: pointer;
     opacity: 100%;
     box-shadow: var(--sombra-caja);
     transform: rotateY(360deg);
-    transition: transform 1.25s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-      box-shadow 2s ease, opacity 1.8s !important;
+    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      box-shadow 2s ease, opacity 0.5s !important;
   }
 
+  /* Apartado central */
   & main {
     width: min(var(--ancho-total), 100%);
     height: min(var(--alto-total), 100%);
@@ -111,10 +112,23 @@
         font-size: 18px;
       }
     }
+    /* -------------------------------- */
 
     /* *********************************** */
-    /* Atributos de las cajas */
+    /* Atributos de todas la cajas */
     /* *********************************** */
+    /* Atributos compartidos */
+    .caja2,
+    .caja3,
+    .caja5,
+    .caja8,
+    .caja9,
+    .caja11,
+    .caja19 {
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
     .caja1 {
       grid-area: var(--grid-2por5);
 
@@ -147,19 +161,28 @@
     .caja4 {
       grid-area: span 3 / span 9;
 
+      & img {
+        align-self: center;
+        margin: auto;
+      }
+
       & p {
         line-height: 500%;
+        position: absolute;
+        justify-content: center;
+        text-align: center;
 
         & .bateria {
-          font-size: 65px;
-          font-style: normal;
-          font-weight: 800;
-          line-height: 130%;
+          font-size: 45px;
+
           font-family: "EloquiaB";
-          background-color: var(--c-verde);
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          color: var(--c-blanco);
+          padding-right: 20px;
+        }
+
+        & span {
+          flex: 1;
+          text-align: center;
         }
       }
     }
@@ -248,10 +271,24 @@
       grid-area: span 3 / span 15;
       font-size: 50px;
       font-family: "EloquiaB";
-      color: var(--c-gris-oscuro);
+      color: var(--c-blanco);
+      background: linear-gradient(
+        31deg,
+        rgba(105, 0, 17, 1) 11%,
+        rgba(219, 0, 15, 1) 25%,
+        rgba(149, 51, 231, 1) 38%,
+        rgba(149, 51, 231, 1) 45%,
+        rgba(219, 0, 15, 1) 69%,
+        rgba(36, 37, 105, 1) 86%
+      );
     }
     .caja14 {
       grid-area: span 6 / span 15;
+
+      & img {
+        border-radius: 15px;
+        width: 60%;
+      }
     }
     .caja15 {
       grid-area: span 2 / span 7;
@@ -379,4 +416,4 @@
     }
   }
 }
-/* ---------------------- */
+/* ***************************** */
